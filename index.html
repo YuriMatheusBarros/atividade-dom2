@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+  .red-shadow {
+   text-shadow: 2px 2px 5px red;
+  }
+
+  .blue-shadow {
+   text-shadow: 2px 2px 5px blue;
+  }
+
+  .red-fundo {
+   background-color: red;
+  }
+
+  .blue-fundo {
+   background-color: blue;
+  }
+</style>
+<body>
+
+    <button class="back" onclick="backChanger()"> 1 </button>
+
+    <button class="textColor" onclick="textColorChanger()"> 2 </button> <h1> oi </h1>
+  
+    <button onclick="textFontChanger()"> 3 </button> <p id="texto"
+    style="font-size: 50%;"> Hola </p>
+  
+    <button onclick="textTitle()"> 5 </button> <h1 id="titulo"> oh </h1>
+  
+    <button onclick="textShadow()"> 6 </button> <h1 id="titulo2" class="red-shadow"> เฮ้ </h1>
+  
+    <button onclick="fundoParagraph()"> 7 </button> <p id="paragrafo" class="red-fundo"> Hey </p>
+  
+    <button onclick="imageChanger()"> 8 </button> <img class="oi" src="https://melhorescolha.com/blog/wp-content/uploads/2018/08/oi-1.jpg" alt="">
+
+    <script>
+
+    //Questão 1-
+    function backChanger () {
+      let fundo = document.querySelector("body");
+      if(fundo.style.background === 'black') {
+        fundo.style.background = "white";
+      } else {
+        fundo.style.background = "black";
+      }
+    }
+
+    //Questão 2-
+    function textColorChanger () {
+      let texto = document.querySelector("h1");
+      if(texto.style.color === 'blue') {
+        texto.style.color = "black";
+      } else {
+        texto.style.color = "blue";
+      }
+    }
+
+    //Questão 3 e 4-
+    function textFontChanger() {
+      let texto = document.getElementById("texto");
+      let currentFontSize = window.getComputedStyle(texto).fontSize;
+
+      if (currentFontSize === "8px") { 
+        texto.style.fontSize = "16px"; 
+      } else {
+        texto.style.fontSize = "8px"; 
+      }
+    } 
+
+    //Questão 5-
+    function textTitle() {
+      let texto = document.getElementById("titulo")
+      if (texto.innerHTML === "ei") {
+        texto.innerHTML = "oh";
+      } else {
+        texto.innerHTML = "ei";
+      }
+    }
+
+    //Questão 6 e 7-
+    function textShadow() {
+      let texto = document.getElementById("titulo2");
+      
+        if (texto.classList.contains("red-shadow")) {
+        texto.classList.remove("red-shadow");
+        texto.classList.add("blue-shadow");
+      } else {
+        texto.classList.remove("blue-shadow");
+        texto.classList.add("red-shadow");
+      }
+    }
+
+    //Questão 8-
+    function fundoParagraph() {
+      let texto = document.getElementById("paragrafo");
+
+      if (texto.classList.contains("red-fundo")) {
+        texto.classList.remove("red-fundo");
+        texto.classList.add("blue-fundo")
+      } else {
+        texto.classList.remove("blue-fundo");
+        texto.classList.add("red-fundo");
+      }
+    }
+
+    //Questão 9 e 10-
+    function imageChanger() {
+      let imagem = document.querySelector(".oi");
+
+      if (imagem) {
+
+        if (imagem.src.includes("https://melhorescolha.com/blog/wp-content/uploads/2018/08/oi-1.jpg")) {
+
+          imagem.src = "https://zoiestudio.com.br/wp-content/uploads/2016/10/o-novo-logo-da-oi-massacra-os-ignorantes-como-gente-2.gif"; 
+
+        } else if (imagem.src.includes("https://zoiestudio.com.br/wp-content/uploads/2016/10/o-novo-logo-da-oi-massacra-os-ignorantes-como-gente-2.gif")) {
+          imagem.src = ""; 
+          
+        } else {
+          imagem.src = "https://melhorescolha.com/blog/wp-content/uploads/2018/08/oi-1.jpg"; 
+        }
+      }
+    }
+
+    </script>
+
+</html>
+</body>
